@@ -12,7 +12,7 @@ A simple web-based quiz game where users guess the capital cities of different c
 ## 📦 Installation  
 1. **Clone the repository**  
    ```sh
-   git clone https://github.com/your-username/capital-quiz.git
+   git clone https:gh repo clone Mutwiri-Mwenda/Capital-City-Quiz
    cd capital-quiz
 
 2. Install dependencies
