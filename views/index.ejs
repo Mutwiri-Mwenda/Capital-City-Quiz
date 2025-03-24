@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Capital Quiz</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body id="app">
+    <form class="container" action="/submit" method="post">
+        <h3>
+            Total Score: 
+            <span id="score">
+                <%= locals.totalScore !== undefined ? locals.totalScore : 0 %>
+            </span>
+        </h3>
+        
+        <% if (locals.question) { %>
+            <h2>What is the capital of <%= question.country %>?</h2>
+        <% } %>
+        
+        <div class="answer-container">
+            <input type="text" name="answer" id="userInput" placeholder="Enter your answer" autofocus autocomplete="off">
+        </div>
+        
+        <button type="submit">
+            SUBMIT
+            <% if (locals.wasCorrect === true) { %>
+                <span class="checkmark">✔</span>
+            <% } else if (locals.wasCorrect === false) { %>
+                <span class="cross" id="error">✖</span>
+            <% } %>
+        </button>
+    </form>
+    
+    <script>
+        var wasCorrect = "<%= locals.wasCorrect %>";
+        console.log(wasCorrect);
+        
+        if (wasCorrect === "false") {
+            alert("Incorrect answer. Please try again.");
+            setTimeout(function() {
+                window.location.href = "/";
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
